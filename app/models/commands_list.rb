@@ -1,2 +1,0 @@
-class CommandsList < ApplicationRecord
-end

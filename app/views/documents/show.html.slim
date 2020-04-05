@@ -1,0 +1,22 @@
+.row
+  .medium-7.columns
+    h2
+      | Document #
+      => document.id
+
+    strong Name
+    br
+    = document.name
+    br
+    br
+
+    strong Text
+    br
+    = document.text
+
+    br
+    br
+    strong Commands
+    ul
+      - document.commands.each do |command|
+        li = command.text
