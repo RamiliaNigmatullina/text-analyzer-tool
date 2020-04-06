@@ -3,8 +3,7 @@ module CreateDocument
     include Interactor::Organizer
 
     organize CreateDocument::SaveRecord,
-      CreateDocument::Dandelion::AnalyzeText,
-      CreateDocument::Dandelion::ExtractEntities,
+      CreateDocument::Google::Analyze,
       CreateDocument::CreateCommands::GenerateEntities
   end
 end

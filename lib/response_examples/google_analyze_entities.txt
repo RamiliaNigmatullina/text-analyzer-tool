@@ -1,0 +1,31 @@
+Text: Registered user can change their email, password and full name.
+
+response:
+<Google::Cloud::Language::V1::AnalyzeEntitiesResponse: entities: [
+  <Google::Cloud::Language::V1::Entity: name: "user", type: :PERSON, metadata: {}, salience: 0.5456470847129822,
+    mentions: [
+      <Google::Cloud::Language::V1::EntityMention: text:
+        <Google::Cloud::Language::V1::TextSpan: content: "user", begin_offset: -1>, type: :COMMON, sentiment: nil>
+    ], sentiment: nil>,
+  <Google::Cloud::Language::V1::Entity: name: "email", type: :OTHER, metadata: {}, salience: 0.17250140011310577,
+    mentions: [
+      <Google::Cloud::Language::V1::EntityMention: text:
+        <Google::Cloud::Language::V1::TextSpan: content: "email", begin_offset: -1>, type: :COMMON, sentiment: nil>
+    ], sentiment: nil>,
+  <Google::Cloud::Language::V1::Entity: name: "password", type: :OTHER, metadata: {}, salience: 0.1593848019838333,
+    mentions: [
+      <Google::Cloud::Language::V1::EntityMention: text:
+        <Google::Cloud::Language::V1::TextSpan: content: "password", begin_offset: -1>, type: :COMMON, sentiment: nil>
+    ], sentiment: nil>,
+  <Google::Cloud::Language::V1::Entity: name: "name", type: :OTHER, metadata: {}, salience: 0.12246672064065933,
+    mentions: [
+      <Google::Cloud::Language::V1::EntityMention: text:
+        <Google::Cloud::Language::V1::TextSpan: content: "name", begin_offset: -1>, type: :COMMON, sentiment: nil>
+    ], sentiment: nil>
+], language: "en">
+
+response.entities:
+[<Google::Cloud::Language::V1::Entity: name: "user", type: :PERSON, metadata: {}, salience: 0.5456470847129822, mentions: [<Google::Cloud::Language::V1::EntityMention: text: <Google::Cloud::Language::V1::TextSpan: content: "user", begin_offset: -1>, type: :COMMON, sentiment: nil>], sentiment: nil>,
+ <Google::Cloud::Language::V1::Entity: name: "email", type: :OTHER, metadata: {}, salience: 0.17250140011310577, mentions: [<Google::Cloud::Language::V1::EntityMention: text: <Google::Cloud::Language::V1::TextSpan: content: "email", begin_offset: -1>, type: :COMMON, sentiment: nil>], sentiment: nil>,
+ <Google::Cloud::Language::V1::Entity: name: "password", type: :OTHER, metadata: {}, salience: 0.1593848019838333, mentions: [<Google::Cloud::Language::V1::EntityMention: text: <Google::Cloud::Language::V1::TextSpan: content: "password", begin_offset: -1>, type: :COMMON, sentiment: nil>], sentiment: nil>,
+ <Google::Cloud::Language::V1::Entity: name: "name", type: :OTHER, metadata: {}, salience: 0.12246672064065933, mentions: [<Google::Cloud::Language::V1::EntityMention: text: <Google::Cloud::Language::V1::TextSpan: content: "name", begin_offset: -1>, type: :COMMON, sentiment: nil>], sentiment: nil>]
