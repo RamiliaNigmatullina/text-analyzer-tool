@@ -3,7 +3,9 @@ module CreateDocument
     include Interactor::Organizer
 
     organize CreateDocument::SaveRecord,
-      CreateDocument::Google::Analyze,
+      CreateDocument::Analyze::PrepareParams,
+      CreateDocument::Analyze::DivideTextIntoSentences,
+      CreateDocument::Analyze::ParseSentences::DefineType,
       CreateDocument::CreateCommands::GenerateEntities
   end
 end

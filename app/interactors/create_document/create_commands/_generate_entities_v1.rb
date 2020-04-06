@@ -3,16 +3,16 @@ module CreateDocument
     class GenerateEntities
       include Interactor
 
-      delegate :document, :models_list, to: :context
+      delegate :document, :entity_names, :field_names, to: :context
 
       def call
-        models_list.each_with_index { |model, index| create_command(model[:name], index) }
+        entity_names.each_with_index { |entity_name, index| create_command(entity_name, index) }
       end
 
       private
 
-      def create_command(model_name, index)
-        command = document.commands.create(text: text(model_name).squish, position: index)
+      def create_command(entity_name, index)
+        command = document.commands.create(text: text(entity_name).squish, position: index)
 
         context.fail!(error: error(command)) if command.invalid?
       end
@@ -22,7 +22,7 @@ module CreateDocument
       end
 
       def fields
-        # field_names.map { |field| "#{field}:string" }.join(" ")
+        field_names.map { |field| "#{field}:string" }.join(" ")
       end
 
       def error(command)

@@ -1,1 +1,1 @@
-FactoryBot.create(:user, email: "user@example.com")
+FactoryBot.create(:template, text: "There is a %{model_name}.", kind: :model)
