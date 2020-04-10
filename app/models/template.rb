@@ -5,7 +5,7 @@ class Template < ApplicationRecord
 
   validates :text, presence: true
 
-  enumerize :kind, in: %w[model required_field], predicates: true
+  enumerize :kind, in: %w[model field field_type], predicates: true
 
   pg_search_scope :similarity_like,
     against: :text,

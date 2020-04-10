@@ -14,7 +14,7 @@ module CreateDocument
 
       def entity_names
         entities.map do |entity|
-          entity.name.gsub(" ", "_").classify
+          entity.name.tr(" ", "_").classify
         end
       end
 

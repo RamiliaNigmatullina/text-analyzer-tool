@@ -14,7 +14,7 @@ module CreateDocument
 
       def field_names
         entities.map do |entity|
-          entity.name.gsub(" ", "_")
+          entity.name.tr(" ", "_")
         end
       end
 
