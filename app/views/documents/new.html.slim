@@ -1,8 +1,8 @@
 .row
-  .medium-7.columns
+  .large-7.columns
     h2 Analyze your document
 
     = simple_form_for document do |f|
-      = f.input :name
+      = f.input :name, input_html: { autocomplete: :off }
       = f.input :text, input_html: { rows: 10 }
       = f.button :submit
