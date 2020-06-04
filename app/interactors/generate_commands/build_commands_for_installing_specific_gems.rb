@@ -9,7 +9,7 @@ module GenerateCommands
         lemma = normalize(word.downcase)
         gems = fetch_gems(lemma)
 
-        gems&.each { |gem| create_command("bundle add #{gem}") } if gems
+        gems&.each { |gem| create_command("bundle add #{gem}") }
       end
     end
 

@@ -25,6 +25,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:text, :name, :language, entity_attributes: %i[name _destroy])
+    params.require(:document)
+      .permit(:text, :name, :language, entity_attributes: %i[name _destroy], project_gem_attributes: %i[name _destroy])
   end
 end

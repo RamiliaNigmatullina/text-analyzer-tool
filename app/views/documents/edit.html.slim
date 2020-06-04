@@ -20,4 +20,10 @@
                 = field_fields.input :name
                 = field_fields.input :kind
                 = field_fields.input :_destroy, label: "Remove", as: :boolean
+      h4 Gems
+      ol
+        = f.fields_for :project_gems do |project_gem_fields|
+          li
+            = project_gem_fields.input :name
+            = project_gem_fields.input :_destroy, label: "Remove", as: :boolean
       = f.button :submit
