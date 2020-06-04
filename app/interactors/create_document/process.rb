@@ -8,6 +8,7 @@ module CreateDocument
       CreateDocument::Analyze::ParseSentences::ExtractModelNames,
       CreateDocument::Analyze::ParseSentences::ExtractFieldNames,
       CreateDocument::Analyze::ParseSentences::ExtractFieldTypes,
-      CreateDocument::CreateCommands::GenerateEntities
+      CreateDocument::Analyze::CreateEntities,
+      CreateDocument::Analyze::CreateFields
   end
 end

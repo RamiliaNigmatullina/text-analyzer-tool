@@ -1,0 +1,23 @@
+.row
+  .large-7.columns
+    h2 Edit project
+
+    = simple_form_for document do |f|
+      = f.input :name, label: "Project name"
+      = f.input :language
+
+      h4 Entities
+      ol
+        = f.fields_for :entities do |entity_fields|
+          li
+            = entity_fields.input :name
+            = entity_fields.input :_destroy, label: "Remove", as: :boolean
+
+          h5 Entity Fileds
+          ol
+            = entity_fields.fields_for :fields do |field_fields|
+              li
+                = field_fields.input :name
+                = field_fields.input :kind
+                = field_fields.input :_destroy, label: "Remove", as: :boolean
+      = f.button :submit

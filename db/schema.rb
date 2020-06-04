@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200406200333) do
+ActiveRecord::Schema.define(version: 20200530094835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20200406200333) do
     t.text "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "language"
+  end
+
+  create_table "entities", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_entities_on_document_id"
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.bigint "entity_id", null: false
+    t.string "name", null: false
+    t.string "kind", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_id"], name: "index_fields_on_entity_id"
   end
 
   create_table "templates", force: :cascade do |t|
@@ -67,4 +85,6 @@ ActiveRecord::Schema.define(version: 20200406200333) do
   end
 
   add_foreign_key "commands", "documents"
+  add_foreign_key "entities", "documents"
+  add_foreign_key "fields", "entities"
 end
