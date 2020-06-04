@@ -2,13 +2,14 @@ module GenerateCommands
   class BuildCommandsForInstallingCommonGems
     include Interactor
 
-    delegate :document, :position, to: :context
+    delegate :document, :position_calculator, to: :context
 
     def call
       generate_base_group_gems_install_commands
       generate_test_group_gems_install_commands
       generate_development_group_gems_install_commands
-      generate_development_test_group_gems_install_commands
+      generate_development_test_group_gems_install_commands_1
+      generate_development_test_group_gems_install_commands_2
     end
 
     private
@@ -38,13 +39,16 @@ module GenerateCommands
       create_command("bundle add web-console --group 'development'")
     end
 
-    def generate_development_test_group_gems_install_commands
+    def generate_development_test_group_gems_install_commands_1
       create_command("bundle add bullet --group 'development, test'")
       create_command("bundle add bundler-audit --group 'development, test'")
       create_command("bundle add dotenv-rails --group 'development, test'")
       create_command("bundle add factory_bot_rails --group 'development, test'")
       create_command("bundle add faker --group 'development, test'")
       create_command("bundle add pry-rails --group 'development, test'")
+    end
+
+    def generate_development_test_group_gems_install_commands_2
       create_command("bundle add rspec-rails --group 'development, test'")
       create_command("bundle add rubocop --group 'development, test'")
       create_command("bundle add rubocop-rspec --group 'development, test'")
@@ -54,11 +58,10 @@ module GenerateCommands
 
     def create_command(text)
       document.commands.create(position: position, text: text)
-      increase_position
     end
 
-    def increase_position
-      context.position += 1
+    def position
+      position_calculator.next_position
     end
   end
 end
