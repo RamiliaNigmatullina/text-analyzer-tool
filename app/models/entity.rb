@@ -5,5 +5,5 @@ class Entity < ApplicationRecord
 
   validates :name, presence: true
 
-  accepts_nested_attributes_for :fields
+  accepts_nested_attributes_for :fields, allow_destroy: true
 end

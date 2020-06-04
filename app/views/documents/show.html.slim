@@ -18,35 +18,6 @@
     br
     strong Commands
     ul
-      li rails new test_task
-      li bin/setup
-      li bundle add active_model_serializers
-      li bundle add decent_decoration
-      li bundle add decent_exposure
-      li bundle add devise
-      li bundle add draper
-      li bundle add interactor
-      li bundle add kaminari
-      li bundle add "action_policy"
-      li bundle add responders
-      li bundle add seedbank
-      li bundle add capybara --group "test"
-      li bundle add email_spec --group "test"
-      li bundle add launchy --group "test"
-      li bundle add poltergeist --group "test"
-      li bundle add bullet --group "development, test"
-      li bundle add bundler-audit --group "development, test"
-      li bundle add dotenv-rails --group "development, test"
-      li bundle add factory_bot_rails --group "development, test"
-      li bundle add faker --group "development, test"
-      li bundle add pry-rails --group "development, test"
-      li bundle add rspec-rails --group "development, test"
-      li bundle add rubocop --group "development, test"
-      li bundle add rubocop-rspec --group "development, test"
-      li bundle add scss_lint --group "development, test"
-      li bundle add slim_lint --group "development, test"
-      li bundle add letter_opener --group "development"
-      li bundle add web-console --group "development"
-
       - document.commands.each do |command|
         li = command.text
+    = link_to "Edit project settings", edit_document_path(document), class: "primary button"

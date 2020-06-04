@@ -7,8 +7,8 @@ class Document < ApplicationRecord
 
   validates :name, :text, presence: true
 
-  accepts_nested_attributes_for :entities
-  accepts_nested_attributes_for :project_gems
+  accepts_nested_attributes_for :entities, allow_destroy: true
+  accepts_nested_attributes_for :project_gems, allow_destroy: true
 
   enumerize :language, in: %w[English Russian]
 end
