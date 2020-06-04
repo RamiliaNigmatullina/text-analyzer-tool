@@ -5,6 +5,7 @@ module CreateDocument
     delegate :document, to: :context
 
     def call
+      document.language = "English"
       document.save || context.fail!(error: error)
     end
 

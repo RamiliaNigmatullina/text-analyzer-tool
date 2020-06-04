@@ -16,9 +16,15 @@ class DocumentsController < ApplicationController
     respond_with document
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
   def document_params
-    params.require(:document).permit(:text, :name)
+    params.require(:document).permit(:text, :name, :language, entity_attributes: %i[:name, :_destroy] )
   end
 end
