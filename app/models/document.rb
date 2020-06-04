@@ -3,7 +3,6 @@ class Document < ApplicationRecord
 
   has_many :commands, dependent: :destroy
   has_many :entities, dependent: :destroy
-  has_many :fields, through: :entities
 
   validates :name, :text, presence: true
 

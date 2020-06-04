@@ -10,3 +10,4 @@ en:
     submit:
       document:
         create: "Analyze"
+        update: "Generate Commands"

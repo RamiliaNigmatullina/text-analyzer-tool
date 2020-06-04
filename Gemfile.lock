@@ -252,6 +252,7 @@ GEM
     kaminari-core (1.0.1)
     launchy (2.4.3)
       addressable (~> 2.3)
+    lemmatizer (0.2.2)
     letter_opener (1.7.0)
       launchy (~> 2.2)
     listen (3.1.5)
@@ -530,6 +531,7 @@ DEPENDENCIES
   jasmine-jquery-rails
   kaminari
   launchy
+  lemmatizer
   letter_opener
   memory_profiler
   meta-tags

@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
   def create
     CreateDocument::Process.call(document: document)
 
-    respond_with document
+    respond_with document, location: edit_document_path(document), notice: nil
   end
 
   def edit
