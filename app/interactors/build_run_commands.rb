@@ -6,6 +6,7 @@ class BuildRunCommands
   def call
     create_command("rake db:migrate")
     create_command("rails server")
+    create_command("open http://localhost:3000")
   end
 
   private

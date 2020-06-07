@@ -4,12 +4,14 @@ class BuildCommandsForInstallingSpecificGems
   delegate :document, :position, to: :context
 
   def call
-    document.project_gems.each do |project_gem|
-      create_command("bundle add #{project_gem.name}")
-    end
+    create_command("bundle add #{project_gem_names}")
   end
 
   private
+
+  def project_gem_names
+    document.project_gems.map(&:name).join(" ")
+  end
 
   def create_command(text)
     document.commands.create(position: position, text: text)
