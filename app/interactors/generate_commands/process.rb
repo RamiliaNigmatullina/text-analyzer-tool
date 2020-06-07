@@ -1,6 +1,7 @@
 module GenerateCommands
   class Process
     include Interactor::Organizer
+    include InteractorWithTransaction
 
     before do
       context.position = 0.0

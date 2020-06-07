@@ -1,5 +1,6 @@
 class UpdateDocument
   include Interactor::Organizer
+  include InteractorWithTransaction
 
   before do
     context.position = 1.0
