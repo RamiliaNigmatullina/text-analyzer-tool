@@ -1,6 +1,7 @@
 {
   "avatar": ["carrierwave", "mini_magick", "image_processing"],
   "aws": ["fog-aws", "aws-sdk-s3"],
+  "amazon": ["fog-aws", "aws-sdk-s3"],
   "csv": ["axlsx", "axlsx_rails", "fast_excel"],
   "deleted": ["paranoia", "paranoia_uniqueness_validator"],
   "dollar": ["rails-money"],
@@ -15,6 +16,7 @@
   "longitude": ["geocoder"],
   "mapbox": ["mapbox-gl-rails"],
   "money": ["rails-money"],
+  "price": ["rails-money"],
   "octopus": ["ar-octopus"],
   "ruble": ["rails-money"],
   "selectize": ["selectize-rails"],

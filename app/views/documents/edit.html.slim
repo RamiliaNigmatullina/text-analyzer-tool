@@ -4,26 +4,21 @@
 
     = simple_form_for document do |f|
       = f.input :name, label: "Project name"
-      = f.input :language
+      br
 
       h4 Entities
-      ol
-        = f.fields_for :entities do |entity_fields|
-          li
-            = entity_fields.input :name
-            = entity_fields.input :_destroy, label: "Remove", as: :boolean
+      hr
+      = f.fields_for :entities do |entity_fields|
+        = render partial: "entity_fields", locals: { f: entity_fields }
+      = link_to_add_fields "Add entity", f, :entities, class: "primary button hollow small"
+      br
+      br
 
-          h5 Entity Fileds
-          ol
-            = entity_fields.fields_for :fields do |field_fields|
-              li
-                = field_fields.input :name
-                = field_fields.input :kind
-                = field_fields.input :_destroy, label: "Remove", as: :boolean
       h4 Gems
-      ol
-        = f.fields_for :project_gems do |project_gem_fields|
-          li
-            = project_gem_fields.input :name
-            = project_gem_fields.input :_destroy, label: "Remove", as: :boolean
+      hr
+      = f.fields_for :project_gems do |project_gem_fields|
+        = render partial: "project_gem_fields", locals: { f: project_gem_fields }
+      = link_to_add_fields "Add gem", f, :project_gems, class: "primary button hollow small"
+      br
+
       = f.button :submit

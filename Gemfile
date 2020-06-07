@@ -8,6 +8,7 @@ gem "rails", "5.1.6.2"
 # assets
 gem "autoprefixer-rails"
 gem "coffee-rails"
+gem "font-awesome-rails"
 gem "foundation-icons-sass-rails"
 gem "foundation-rails"
 gem "premailer-rails"
@@ -22,6 +23,7 @@ end
 # views
 gem "active_link_to"
 gem "inky-rb", require: "inky"
+gem "link_to_add_fields"
 gem "meta-tags"
 gem "simple_form"
 gem "slim"

@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  expose :documents, -> { Document.order(created_at: :desc).page(params[:page]) }
   expose :document
 
   def index

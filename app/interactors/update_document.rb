@@ -10,5 +10,6 @@ class UpdateDocument
     BuildSetupCommands,
     BuildCommandsForInstallingCommonGems,
     BuildCommandsForInstallingSpecificGems,
-    BuildScaffoldCommands
+    BuildScaffoldCommands,
+    BuildRunCommands
 end

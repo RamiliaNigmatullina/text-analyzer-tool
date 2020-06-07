@@ -1,0 +1,15 @@
+.entity_fields
+  .row
+    .large-11.columns
+      = f.input :name
+    .large-1.columns
+      = f.hidden_field :_destroy
+      = link_to_remove_fields fa_icon("times", class: "remove-link"), ".entity_fields"
+
+  .row
+    .medium-11.medium-offset-1.columns
+      h5 Entity Fileds
+      hr
+      = f.fields_for :fields do |field_fields|
+        = render partial: "field_fields", locals: { f: field_fields }
+      = link_to_add_fields "Add field", f, :fields, class: "primary button hollow small"

@@ -1,0 +1,10 @@
+.row
+  .large-7.columns
+    h2 Documents
+
+    - documents.each do |document|
+      ' #{document.id}.
+      = link_to document.name, document_path(document)
+      br
+    br
+    = paginate documents

@@ -1,0 +1,9 @@
+.field_fields
+  .row
+    .large-7.columns
+      = f.input :name
+    .large-4.columns
+      = f.input :kind
+    .large-1.columns
+      = f.hidden_field :_destroy
+      = link_to_remove_fields fa_icon("times", class: "remove-link"), ".field_fields"

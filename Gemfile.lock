@@ -147,6 +147,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     flamegraph (0.9.5)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     formatador (0.2.5)
     formulaic (0.4.0)
       activesupport
@@ -255,6 +257,8 @@ GEM
     lemmatizer (0.2.2)
     letter_opener (1.7.0)
       launchy (~> 2.2)
+    link_to_add_fields (0.1.0)
+      rails (>= 3.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -517,6 +521,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   flamegraph
+  font-awesome-rails
   formulaic
   foundation-icons-sass-rails
   foundation-rails
@@ -533,6 +538,7 @@ DEPENDENCIES
   launchy
   lemmatizer
   letter_opener
+  link_to_add_fields
   memory_profiler
   meta-tags
   newrelic_rpm
