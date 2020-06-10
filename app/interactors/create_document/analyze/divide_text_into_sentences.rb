@@ -15,7 +15,7 @@ module CreateDocument
         splitted_sentences.map do |sentence|
           template = find_template(sentence)
 
-          ::Sentence.new(text: sentence, template: template)
+          ::Sentence.new(text: sentence.downcase, template: template)
         end
       end
 

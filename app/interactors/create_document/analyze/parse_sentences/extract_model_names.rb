@@ -4,6 +4,8 @@ module CreateDocument
       class ExtractModelNames
         include Interactor
 
+        RESERVED_WORDS = %w[there is are a an the and model models class classes].freeze
+
         delegate :sentences, :models_list, to: :context
 
         def call
@@ -17,20 +19,22 @@ module CreateDocument
         end
 
         def add_model(sentence)
-          model_name = extract_model_name(sentence)
+          model_names = extract_model_names(sentence)
 
-          models_list << model_structure(model_name) if uniq?(model_name)
+          model_names.each do |model_name|
+            models_list << model_structure(model_name) if uniq?(model_name)
+          end
         end
 
         def uniq?(model_name)
           models_list.select { |model| model[:name] == model_name }.empty?
         end
 
-        def extract_model_name(sentence)
-          sentence_arr = split_string(sentence.text)
-          template_arr = split_string(sentence.template_text)
+        def extract_model_names(sentence)
+          class_names = sentence.text.split(%r{\s|,\s})
+          class_names -= RESERVED_WORDS
 
-          (sentence_arr - template_arr).join("_").classify
+          class_names.map(&:classify)
         end
 
         def model_structure(model_name)
@@ -38,10 +42,6 @@ module CreateDocument
             name: model_name,
             fields: []
           }
-        end
-
-        def split_string(string)
-          string.split(" ")
         end
       end
     end

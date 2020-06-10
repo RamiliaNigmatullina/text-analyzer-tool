@@ -4,6 +4,8 @@ module CreateDocument
       class ExtractFieldNames
         include Interactor
 
+        RESERVED_WORDS = %w[the a has and have field fields].freeze
+
         delegate :sentences, :models_list, to: :context
 
         def call
@@ -17,7 +19,9 @@ module CreateDocument
         end
 
         def add_field(sentence)
-          model_and_field_names = extract_model_and_field_names(sentence)
+          model_and_field_names = sentence.text.split(%r{\s|,\s})
+          model_and_field_names -= RESERVED_WORDS
+
           model_name = model_and_field_names[0].titleize
           field_names = model_and_field_names[1..-1]
 
@@ -36,24 +40,12 @@ module CreateDocument
           models_list.select { |model| model[:name] == model_name }.any?
         end
 
-        def extract_model_and_field_names(sentence)
-          sentence_text = sentence.text.delete(",").squish
-          sentence_arr = split_string(sentence_text)
-          template_arr = split_string(sentence.template_text)
-
-          sentence_arr - template_arr
-        end
-
         def field_structure(field_name)
           {
             name: field_name,
             required: false,
             type: "string"
           }
-        end
-
-        def split_string(string)
-          string.split(" ")
         end
       end
     end
