@@ -22,7 +22,7 @@ module CreateDocument
           model_and_field_names = sentence.text.split(%r{\s|,\s})
           model_and_field_names -= RESERVED_WORDS
 
-          model_name = model_and_field_names[0].titleize
+          model_name = normalize(model_and_field_names[0]).classify
           field_names = model_and_field_names[1..-1]
 
           return unless exists?(model_name)
@@ -38,6 +38,14 @@ module CreateDocument
 
         def exists?(model_name)
           models_list.select { |model| model[:name] == model_name }.any?
+        end
+
+        def normalize(word)
+          lemmatizer.lemma(word)
+        end
+
+        def lemmatizer
+          @lemmatizer ||= Lemmatizer.new
         end
 
         def field_structure(field_name)

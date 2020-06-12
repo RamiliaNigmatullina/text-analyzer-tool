@@ -5,6 +5,10 @@ module CreateDocument
 
       delegate :document, to: :context
 
+      before do
+        @created_gems = []
+      end
+
       def call
         text_words.each do |word|
           lemma = normalize(word.downcase)
@@ -25,11 +29,14 @@ module CreateDocument
       end
 
       def text_words
-        document.text.split(" ")
+        document.text.downcase.delete(",").delete(".").split(" ")
       end
 
       def create_project_gem(gem_name)
+        return if gem_name.in?(@created_gems)
+
         project_gem = document.project_gems.create(name: gem_name)
+        @created_gems << gem_name
 
         context.fail!(error: project_gem.errors.full_messages.join(" ")) if project_gem.invalid?
       end

@@ -2,6 +2,7 @@
   "avatar": ["carrierwave", "mini_magick", "image_processing"],
   "aws": ["fog-aws", "aws-sdk-s3"],
   "amazon": ["fog-aws", "aws-sdk-s3"],
+  "calendar": ["simple_calendar"],
   "csv": ["axlsx", "axlsx_rails", "fast_excel"],
   "deleted": ["paranoia", "paranoia_uniqueness_validator"],
   "dollar": ["money-rails"],

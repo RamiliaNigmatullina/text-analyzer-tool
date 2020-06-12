@@ -13,6 +13,7 @@ FactoryBot.create(:template, text: "The %{model_name} has an %{field_name} field
 FactoryBot.create(:template, text: "The %{model_name} has the %{field_name} field", kind: :field)
 FactoryBot.create(:template, text: "The %{model_name} has %{field_name}, %{field_name} fields", kind: :field)
 FactoryBot.create(:template, text: "The %{model_name} has %{field_name} and %{field_name} fields", kind: :field)
+FactoryBot.create(:template, text: "The %{model_name} have a %{field_name} a %{field_name} and %{field_name} fields", kind: :field)
 
 FactoryBot.create(:template, text: "The %{field_name} field has %{type} type", kind: :field_type)
 FactoryBot.create(:template, text: "The %{field_name} field has a %{type} type", kind: :field_type)

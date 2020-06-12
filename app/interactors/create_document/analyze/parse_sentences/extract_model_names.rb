@@ -34,7 +34,15 @@ module CreateDocument
           class_names = sentence.text.split(%r{\s|,\s})
           class_names -= RESERVED_WORDS
 
-          class_names.map(&:classify)
+          class_names.map { |class_name| normalize(class_name).classify }
+        end
+
+        def normalize(word)
+          lemmatizer.lemma(word)
+        end
+
+        def lemmatizer
+          @lemmatizer ||= Lemmatizer.new
         end
 
         def model_structure(model_name)
